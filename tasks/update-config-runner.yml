@@ -336,7 +336,6 @@
     dest: "{{ temp_runner_config.path }}"
     content: "{{ lookup('template', 'config.runners.docker.services.j2') if gitlab_runner.docker_services is defined }}"
     state: "{{ 'present' if gitlab_runner.docker_services is defined else 'absent' }}"
-    marker: "# {mask} runners.docker.services"
     insertafter: EOF
   check_mode: no
   notify:
